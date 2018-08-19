@@ -1,0 +1,5 @@
+﻿Enable-Migrations -ContextTypeName RequestContext -MigrationsDirectory Migrations\Request
+
+add-migration -ConfigurationTypeName ILP_003.Migrations.Request.Configuration "InitialCreate"
+
+update-database -ConfigurationTypeName ILP_003.Migrations.Request.Configuration

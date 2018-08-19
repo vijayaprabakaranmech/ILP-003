@@ -1,0 +1,88 @@
+<br />
+<div *ngIf = "status" class="thumbnail__content text-center"><h5>Please wait...</h5></div>
+  <div class="row" *ngIf = "disp">
+    <div class="col-md-3"></div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <input class="form-control text-center" disabled type="text" name="UserName" #IP="ngModel" [(ngModel)]="requestService.IP"/>
+          </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <input class="form-control text-center" disabled type="text" value="User Name : AzureUser" />
+          </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <input class="form-control text-center" disabled type="text" value="Password : Vijay@123" />
+          </div>
+    </div>
+</div>
+<div class="signup__container">
+  <div class="container__child signup__thumbnail">
+    <div class="thumbnail__logo">
+    </div>
+    <div class="thumbnail__content text-center">
+      <h1 class="heading--primary">Welcome to Azure</h1>
+      <h2 class="heading--secondary"></h2>
+    </div>
+    <div class="signup__overlay"></div>
+  </div>
+  <div class="container__child signup__form">
+    <form #requestForm = "ngForm" (ngSubmit)="onSubmit(requestForm)">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input class="form-control" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="requestService.UserName" required />
+        <div class="validation-error" *ngIf="UserName.invalid && UserName.touched"></div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="email" name="EmailID" #EmailID="ngModel" [(ngModel)]="requestService.EmailID" required />
+        <div class="validation-error" *ngIf="EmailID.invalid && EmailID.touched"></div>
+      </div>
+    <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input class="form-control" type="text" name="Location" #Location="ngModel" [(ngModel)]="requestService.Location" required />
+        <div class="validation-error" *ngIf="Location.invalid && Location.touched"></div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="purpose">Purpose</label>
+        <input class="form-control" type="text" name="Purpose" #Purpose="ngModel" [(ngModel)]="requestService.Purpose" required />
+        <div class="validation-error" *ngIf="Purpose.invalid && Purpose.touched"></div>
+      </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="duration">Duration</label>
+        <input class="form-control" type="number" name="Duration" #Duration="ngModel" [(ngModel)]="requestService.Duration" min="1" max="15"  required />
+        <div class="validation-error" *ngIf="Duration.invalid && Duration.touched"></div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="vmtype">VM Type</label>
+        <select class="form-control" name="VMType" #VMType="ngModel" [(ngModel)]="requestService.VMType"> 
+    <option value=""></option>
+  <option value=".NET SDK">.NET SDK</option>
+  <option value="ARM templates">ARM templates</option>
+</select>
+      </div>
+    </div>
+    </div>
+      <div class="m-t-lg">
+        <ul class="list-inline">
+          <li>
+            <input class="btn btn--form" type="submit" [disabled]="!requestForm.valid" value="Register" />
+          </li>
+
+        </ul>
+      </div>
+    </form>  
+  </div>
+</div>
